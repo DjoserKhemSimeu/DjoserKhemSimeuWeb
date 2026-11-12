@@ -1,0 +1,12 @@
+{
+  "name": "djoserkhemsimeuweb",
+  "version": "1.0.0",
+  "description": "Site web académique et personnel de Djoser SIMEU",
+  "scripts": {
+    "build": "echo 'No build required, static assets ready in public/'",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^3.80.0"
+  }
+}

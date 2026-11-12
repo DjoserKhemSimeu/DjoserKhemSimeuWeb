@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Djoser SIMEU — PhD Student in Computer Science</title>
-  <meta name="description" content="Djoser SIMEU, PhD Student at Inria (DATAMOVE Team), Université Grenoble Alpes. Research on the environmental footprint of LLMs and sustainable AI.">
+  <meta name="description" content="Djoser SIMEU, PhD Student at Inria (DATAMOVE Team), Université Grenoble Alpes. Evaluating the Sobriety of Cloud Infrastructures and AI Applications (ANR SO-Cloud Project).">
 
-  <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22 fill=%22%232ea043%22>●</text></svg>">
+  <!-- Planet Earth Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22>🌍</text></svg>">
 
   <!-- Academic fonts: Inter / JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -59,8 +59,9 @@
   <!-- Header -->
   <header class="border-b border-[#21262d] bg-[#0b0e13]/90 sticky top-0 z-40 backdrop-blur-sm">
     <div class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="#about" class="text-sm font-semibold tracking-tight text-white hover:text-slate-300 transition-colors">
-        Djoser SIMEU
+      <a href="#about" class="text-sm font-semibold tracking-tight text-white hover:text-slate-300 transition-colors flex items-center gap-2">
+        <span>🌍</span>
+        <span>Djoser SIMEU</span>
       </a>
       <nav class="flex items-center gap-6 text-xs text-[#8b949e]">
         <a href="#gantt" class="hover:text-white transition-colors">Timeline</a>
@@ -78,18 +79,25 @@
     <!-- ABOUT SECTION -->
     <section id="about" class="flex flex-col-reverse sm:flex-row items-start justify-between gap-8 pt-4">
       <div class="space-y-4 max-w-2xl">
-        <h1 class="text-2xl sm:text-3xl font-semibold text-white tracking-tight">
+        <h1 class="text-2xl sm:text-3xl font-semibold text-white tracking-tight flex items-center gap-2">
           Djoser SIMEU
         </h1>
         <p class="text-sm text-[#8b949e] font-mono">
           PhD Student in Computer Science • Inria / DATAMOVE Team • Université Grenoble Alpes
         </p>
 
+        <!-- ANR SO-Cloud Tag -->
+        <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-[#162a1c] border border-[#2ea043]/30 text-xs font-mono text-[#7ee787]">
+          <span>ANR SO-Cloud Project</span>
+          <span class="text-[#30363d]">•</span>
+          <span>Inria / LIG / UGA</span>
+        </div>
+
         <p class="text-[#c9d1d9] leading-relaxed">
           I am a PhD student in the <strong class="text-white font-medium">DATAMOVE</strong> research team at 
           <strong class="text-white font-medium">Inria</strong> (joint team with LIG / Université Grenoble Alpes). 
-          My research focuses on evaluating and mitigating the environmental footprint and energy consumption 
-          of Large Language Models (LLMs) across cloud and high-performance computing (HPC) infrastructures.
+          My thesis focuses on the <strong class="text-white font-medium">evaluation of the sobriety of cloud infrastructures and AI applications</strong>, 
+          conducted within the framework of the French National Research Agency's <strong class="text-[#7ee787] font-medium">ANR SO-Cloud</strong> project.
         </p>
 
         <p class="text-[#8b949e] text-sm leading-relaxed">
@@ -150,12 +158,12 @@
           <!-- Gantt Rows -->
           <div class="space-y-2.5 pt-3 text-xs">
 
-            <!-- PhD at Inria -->
+            <!-- PhD at Inria (ANR SO-Cloud) -->
             <div class="flex items-center">
               <span class="w-36 text-[#8b949e] font-mono text-[11px] truncate">PhD (Inria)</span>
               <div class="flex-1 h-7 bg-[#161b22] rounded relative">
                 <button onclick="openDetails('phd')" class="gantt-bar absolute left-[70%] w-[30%] h-full rounded bg-[#2ea043] text-black font-medium text-[11px] px-2 text-left truncate" title="Click to view details">
-                  PhD: Green LLM Inference (Inria - DATAMOVE)
+                  PhD: Sobriety of Cloud & AI (ANR SO-Cloud)
                 </button>
               </div>
             </div>
@@ -255,16 +263,22 @@
 
       <div class="space-y-8">
 
-        <!-- PhD at Inria -->
-        <article class="space-y-2">
+        <!-- PhD at Inria (ANR SO-Cloud) -->
+        <article class="space-y-2 p-4 rounded-lg bg-[#12161d] border border-[#2ea043]/30">
           <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between text-xs font-mono">
-            <span class="font-semibold text-white text-[14px]">PhD Student in Computer Science</span>
+            <span class="font-semibold text-white text-[15px]">PhD Student in Computer Science</span>
             <span class="text-[#2ea043]">Feb. 2026 — Present</span>
           </div>
-          <div class="text-xs text-[#8b949e]">Inria — DATAMOVE Team (joint with LIG / Univ. Grenoble Alpes) | France</div>
+          <div class="text-xs text-[#8b949e] font-mono">
+            Inria — DATAMOVE Team (joint with LIG / Univ. Grenoble Alpes) • <span class="text-[#7ee787]">ANR SO-Cloud Project</span>
+          </div>
+          <p class="text-sm font-medium text-white pt-1">
+            Subject: <span class="text-slate-200">Evaluating the Sobriety of Cloud Infrastructures and AI Applications</span>
+          </p>
           <ul class="list-disc list-outside pl-4 space-y-1 text-sm text-[#c9d1d9] pt-1">
-            <li>Conducting research on the environmental footprint and sustainability of Large Language Models (LLMs) within cloud infrastructure.</li>
-            <li>Investigating advanced techniques for eco-responsible, energy-efficient, and frugal AI model inference at scale in cloud computing environments.</li>
+            <li>Part of the French national research project <strong class="text-white">ANR SO-Cloud</strong> (Towards Sobriety of Cloud Infrastructures and Applications).</li>
+            <li>Investigating holistic methodologies to measure, evaluate, and optimize the environmental footprint and energy sobriety of cloud systems and Large Language Models (LLMs).</li>
+            <li>Exploring advanced techniques for eco-responsible, energy-efficient, and frugal AI model inference at scale.</li>
             <li>Presented first research findings at <span class="text-white italic">Green Days 2026</span> during an oral presentation.</li>
           </ul>
         </article>
@@ -457,9 +471,9 @@
     const data = {
       phd: {
         period: "Feb. 2026 — Present",
-        title: "PhD Student in Computer Science",
-        inst: "Inria — DATAMOVE Team (joint with LIG / Univ. Grenoble Alpes) | France",
-        desc: "Researching the environmental footprint and energy efficiency of Large Language Models (LLMs) across cloud computing infrastructures. Investigating frugal inference techniques at scale. Talk presented at Green Days 2026."
+        title: "PhD: Evaluating the Sobriety of Cloud Infrastructures and AI Applications",
+        inst: "Inria — DATAMOVE Team (joint with LIG / UGA) • ANR SO-Cloud Project",
+        desc: "Researching methodologies to evaluate and enhance the environmental sobriety of cloud infrastructures and AI applications, with a focus on Large Language Models (LLMs) and frugal computing. Conducted within the ANR SO-Cloud project. Oral talk presented at Green Days 2026."
       },
       re: {
         period: "Oct. 2025 — Jan. 2026",

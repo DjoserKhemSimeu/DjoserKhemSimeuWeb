@@ -3,21 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Djoser SIMEU | Doctorant en Informatique - Green & Frugal AI</title>
-  <meta name="description" content="Portfolio et CV académique de Djoser SIMEU, Doctorant à l'Université Grenoble Alpes (LIG - DATAMOVE). Recherche sur l'empreinte environnementale des LLMs et l'IA frugale.">
-  
-  <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌱</text></svg>">
-  
-  <!-- Google Fonts -->
+  <title>Djoser SIMEU — Doctorant en Informatique</title>
+  <meta name="description" content="Djoser SIMEU, Doctorant au LIG (Équipe DATAMOVE), Université Grenoble Alpes. Recherche sur l'empreinte environnementale des LLMs et l'IA frugale.">
+
+  <!-- Favicon sobre -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2280%22 fill=%22%232e7d32%22>●</text></svg>">
+
+  <!-- Polices sobres & académiques : Inter / Newsreader -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  
-  <!-- FontAwesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
-  <!-- Tailwind CSS via CDN -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -25,29 +22,17 @@
       theme: {
         extend: {
           fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            sans: ['"Inter"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
             mono: ['"JetBrains Mono"', 'monospace'],
           },
           colors: {
-            brand: {
-              50: '#f0fdf4',
-              100: '#dcfce7',
-              200: '#bbf7d0',
-              300: '#86efac',
-              400: '#4ade80',
-              500: '#22c55e',
-              600: '#16a34a',
-              700: '#15803d',
-              800: '#166534',
-              900: '#14532d',
-            },
-            eco: {
-              teal: '#0d9488',
-              cyan: '#06b6d4',
-              dark: '#0a0f14',
-              card: '#111822',
-              cardborder: '#1f2937'
-            }
+            paper: '#0f1318',
+            surface: '#151b22',
+            subtle: '#21262d',
+            border: '#30363d',
+            muted: '#8b949e',
+            accent: '#2ea043',
+            link: '#58a6ff'
           }
         }
       }
@@ -55,175 +40,96 @@
   </script>
 
   <style>
-    /* Custom subtle animations and eco-cyber aesthetics */
-    .eco-glow {
-      box-shadow: 0 0 25px -5px rgba(34, 197, 94, 0.25);
+    body {
+      background-color: #0b0e13;
+      color: #c9d1d9;
     }
-    .grid-bg {
-      background-size: 30px 30px;
-      background-image: 
-        linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    .gantt-bar {
+      transition: opacity 0.15s ease, transform 0.15s ease;
     }
-    /* Gantt chart hover effects */
     .gantt-bar:hover {
-      filter: brightness(1.2);
-      transform: scaleY(1.05);
-      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .modal-backdrop {
-      backdrop-filter: blur(8px);
+      opacity: 0.85;
+      transform: translateY(-1px);
     }
   </style>
 </head>
 
-<body class="bg-[#0b1015] text-slate-200 antialiased font-sans selection:bg-brand-500 selection:text-black min-h-screen relative overflow-x-hidden">
+<body class="min-h-screen text-[15px] leading-relaxed antialiased font-sans flex flex-col justify-between">
 
-  <!-- Ambient background glow elements -->
-  <div class="fixed top-0 left-1/4 w-96 h-96 bg-brand-500/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
-  <div class="fixed bottom-10 right-10 w-[30rem] h-[30rem] bg-teal-500/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
-
-  <!-- NAVIGATION BAR (Dock Minimaliste) -->
-  <nav class="fixed top-4 inset-x-0 mx-auto max-w-4xl z-50 px-4">
-    <div class="bg-[#121a24]/85 border border-slate-700/60 rounded-2xl px-5 py-3 shadow-2xl backdrop-blur-md flex items-center justify-between">
-      <a href="#about" class="flex items-center gap-3 group">
-        <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-brand-600 to-teal-400 p-[1.5px] transition-transform group-hover:scale-105">
-          <img src="PDP.jpg" alt="Djoser SIMEU" class="w-full h-full object-cover rounded-[7px]">
-        </div>
-        <span class="font-bold tracking-tight text-white group-hover:text-brand-400 transition-colors">
-          Djoser SIMEU
-        </span>
+  <!-- En-tête / Barre supérieure discrète -->
+  <header class="border-b border-[#21262d] bg-[#0b0e13]/90 sticky top-0 z-40 backdrop-blur-sm">
+    <div class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#about" class="text-sm font-semibold tracking-tight text-white hover:text-slate-300 transition-colors">
+        Djoser SIMEU
       </a>
+      <nav class="flex items-center gap-6 text-xs text-[#8b949e]">
+        <a href="#gantt" class="hover:text-white transition-colors">Chronologie</a>
+        <a href="#recherche" class="hover:text-white transition-colors">Recherche</a>
+        <a href="#formation" class="hover:text-white transition-colors">Formation</a>
+        <a href="#competences" class="hover:text-white transition-colors">Compétences</a>
+        <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-      <!-- Desktop Nav Links -->
-      <div class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
-        <a href="#about" class="hover:text-brand-400 transition-colors">À Propos</a>
-        <a href="#gantt" class="hover:text-brand-400 transition-colors flex items-center gap-1.5">
-          <i class="fa-solid fa-chart-gantt text-brand-400 text-xs"></i> Chronologie
-        </a>
-        <a href="#research" class="hover:text-brand-400 transition-colors">Recherche</a>
-        <a href="#education" class="hover:text-brand-400 transition-colors">Formation</a>
-        <a href="#skills" class="hover:text-brand-400 transition-colors">Compétences</a>
-        <a href="#contact" class="hover:text-brand-400 transition-colors">Contact</a>
+  <!-- Contenu Principal -->
+  <main class="max-w-4xl mx-auto px-6 py-12 sm:py-16 space-y-16 flex-1 w-full">
+
+    <!-- PRÉSENTATION / BIO SOBRE -->
+    <section id="about" class="flex flex-col-reverse sm:flex-row items-start justify-between gap-8 pt-4">
+      <div class="space-y-4 max-w-2xl">
+        <h1 class="text-2xl sm:text-3xl font-semibold text-white tracking-tight">
+          Djoser SIMEU
+        </h1>
+        <p class="text-sm text-[#8b949e] font-mono">
+          Doctorant en Informatique • LIG / DATAMOVE • Université Grenoble Alpes
+        </p>
+
+        <p class="text-[#c9d1d9] leading-relaxed">
+          Je prépare un doctorat au sein de l'équipe <strong class="text-white font-medium">DATAMOVE</strong> du 
+          <strong class="text-white font-medium">Laboratoire d'Informatique de Grenoble (LIG)</strong>.
+          Mes travaux portent sur la quantification de l'empreinte environnementale et l'efficacité énergétique 
+          de l'inférence des modèles de langage de grande taille (LLMs) dans les infrastructures cloud et de calcul intensif (HPC).
+        </p>
+
+        <p class="text-[#8b949e] text-sm leading-relaxed">
+          Diplômé de l'ENSIMAG (Master MoSiG, Data Science & IA) et du Magistère d'Informatique de l'Université Grenoble Alpes, 
+          mes intérêts de recherche allient architectures neuronales (Transformers), programmation parallèle (CUDA/GPU) 
+          et sobriété numérique.
+        </p>
+
+        <div class="pt-2 flex items-center gap-4 text-xs font-mono">
+          <a href="mailto:djoser.simeu@gmail.com" class="text-[#58a6ff] hover:underline flex items-center gap-1.5">
+            <span>djoser.simeu@gmail.com</span>
+          </a>
+          <span class="text-[#30363d]">•</span>
+          <span class="text-[#8b949e]">Grenoble, France</span>
+        </div>
       </div>
 
-      <!-- Quick Action / Status -->
-      <div class="flex items-center gap-3">
-        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono bg-brand-500/10 text-brand-400 border border-brand-500/30">
-          <span class="w-2 h-2 rounded-full bg-brand-400 animate-pulse"></span>
-          LIG • UGA
-        </span>
-        <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white p-1">
-          <i class="fa-solid fa-bars text-lg"></i>
-        </button>
-      </div>
-    </div>
-
-    <!-- Mobile Menu dropdown -->
-    <div id="mobile-menu" class="hidden md:hidden mt-2 bg-[#121a24] border border-slate-700/60 rounded-xl p-4 shadow-xl space-y-3">
-      <a href="#about" class="block text-slate-300 hover:text-brand-400 text-sm">À Propos</a>
-      <a href="#gantt" class="block text-slate-300 hover:text-brand-400 text-sm">Chronologie (Gantt)</a>
-      <a href="#research" class="block text-slate-300 hover:text-brand-400 text-sm">Recherche & Expériences</a>
-      <a href="#education" class="block text-slate-300 hover:text-brand-400 text-sm">Formation</a>
-      <a href="#skills" class="block text-slate-300 hover:text-brand-400 text-sm">Compétences</a>
-      <a href="#contact" class="block text-slate-300 hover:text-brand-400 text-sm">Contact</a>
-    </div>
-  </nav>
-
-  <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20 space-y-24">
-
-    <!-- HERO / PROFIL -->
-    <section id="about" class="pt-8">
-      <div class="relative rounded-3xl bg-gradient-to-b from-[#141d27] to-[#0f1720] border border-slate-800 p-8 sm:p-12 overflow-hidden eco-glow">
-        <div class="absolute -right-20 -top-20 w-80 h-80 bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
-
-        <div class="flex flex-col-reverse md:flex-row items-center justify-between gap-8 sm:gap-12 relative z-10">
-          <div class="flex-1 text-center md:text-left space-y-5">
-            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-brand-950/60 border border-brand-500/30 text-brand-300 text-xs font-mono">
-              <i class="fa-solid fa-seedling"></i> Green AI & Cloud Sustainability
-            </div>
-            
-            <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
-              Djoser <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-teal-300 to-emerald-400">SIMEU</span>
-            </h1>
-            
-            <p class="text-lg sm:text-xl font-medium text-slate-300 leading-relaxed">
-              Doctorant en Informatique au <span class="text-white font-semibold">Laboratoire d'Informatique de Grenoble (LIG)</span> — Équipe <span class="text-brand-400 font-semibold">DATAMOVE</span> (Univ. Grenoble Alpes).
-            </p>
-
-            <p class="text-slate-400 text-sm sm:text-base leading-relaxed max-w-2xl">
-              Mes recherches explorent l'empreinte environnementale et l'efficacité énergétique des <strong class="text-slate-200">Grands Modèles de Langage (LLMs)</strong> sur les infrastructures Cloud & HPC, en concevant des techniques d'inférence frugales, mesurables et écologiquement responsables.
-            </p>
-
-            <div class="flex flex-wrap items-center justify-center md:justify-start gap-3 pt-2">
-              <a href="mailto:djoser.simeu@gmail.com" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold text-sm transition-all shadow-lg shadow-brand-900/40">
-                <i class="fa-solid fa-envelope"></i> Me Contacter
-              </a>
-              <a href="#gantt" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 font-medium text-sm transition-all">
-                <i class="fa-solid fa-timeline"></i> Explorer le Gantt
-              </a>
-              <a href="tel:+33699683020" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900/60 hover:bg-slate-800 border border-slate-800 text-slate-400 hover:text-slate-200 text-sm font-mono transition-all">
-                <i class="fa-solid fa-phone text-xs"></i> +33 6 99 68 30 20
-              </a>
-            </div>
-          </div>
-
-          <!-- Photo Profile -->
-          <div class="relative group">
-            <div class="w-48 h-48 sm:w-56 sm:h-56 rounded-3xl p-1.5 bg-gradient-to-tr from-brand-500 via-teal-500 to-emerald-400 shadow-2xl transition-transform duration-300 group-hover:scale-105">
-              <img src="PDP.jpg" alt="Djoser SIMEU" class="w-full h-full object-cover rounded-[22px] bg-slate-900">
-            </div>
-            <div class="absolute -bottom-3 -right-3 px-3 py-1.5 rounded-xl bg-[#0e1722] border border-brand-500/50 text-xs font-mono text-brand-300 shadow-xl flex items-center gap-1.5">
-              <i class="fa-solid fa-leaf text-brand-400"></i> Frugal AI
-            </div>
-          </div>
-        </div>
-
-        <!-- Metric Badges Row -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-10 pt-8 border-t border-slate-800/80">
-          <div class="p-3 rounded-xl bg-slate-900/40 border border-slate-800">
-            <div class="text-xs text-slate-400 font-medium">Recherche Actuelle</div>
-            <div class="text-base font-bold text-brand-300">Doctorat LIG (DATAMOVE)</div>
-          </div>
-          <div class="p-3 rounded-xl bg-slate-900/40 border border-slate-800">
-            <div class="text-xs text-slate-400 font-medium">Conférences / Talks</div>
-            <div class="text-base font-bold text-white">Green Days & JRAF</div>
-          </div>
-          <div class="p-3 rounded-xl bg-slate-900/40 border border-slate-800">
-            <div class="text-xs text-slate-400 font-medium">Formation Supérieure</div>
-            <div class="text-base font-bold text-teal-300">ENSIMAG / MoSiG & UGA</div>
-          </div>
-          <div class="p-3 rounded-xl bg-slate-900/40 border border-slate-800">
-            <div class="text-xs text-slate-400 font-medium">Expertise Clé</div>
-            <div class="text-base font-bold text-emerald-400">LLM Inference & Cloud</div>
-          </div>
-        </div>
+      <!-- Photo de profil sobre -->
+      <div class="shrink-0">
+        <img 
+          src="PDP.jpg" 
+          alt="Djoser SIMEU" 
+          class="w-28 h-28 sm:w-32 sm:h-32 object-cover rounded-md border border-[#30363d] grayscale contrast-[1.05] hover:grayscale-0 transition-all duration-300"
+        />
       </div>
     </section>
 
-    <!-- SECTION 2: GANTT CHART INTERACTIF -->
-    <section id="gantt" class="space-y-6">
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-        <div>
-          <div class="inline-flex items-center gap-2 text-brand-400 text-xs font-mono font-semibold uppercase tracking-wider">
-            <i class="fa-solid fa-chart-line"></i> Évolution Temporelle
-          </div>
-          <h2 class="text-2xl sm:text-3xl font-bold text-white mt-1">Diagramme de Gantt des Activités</h2>
-          <p class="text-slate-400 text-sm mt-1">Survolez ou cliquez sur les barres pour afficher les détails et fenêtres contextuelles de chaque étape.</p>
-        </div>
-        <div class="flex items-center gap-3 text-xs font-mono">
-          <span class="inline-flex items-center gap-1.5"><span class="w-3 h-3 rounded bg-emerald-500"></span> Recherche</span>
-          <span class="inline-flex items-center gap-1.5"><span class="w-3 h-3 rounded bg-teal-500"></span> Expériences</span>
-          <span class="inline-flex items-center gap-1.5"><span class="w-3 h-3 rounded bg-blue-500"></span> Études</span>
-        </div>
+    <!-- SECTION 2: DIAGRAMME DE GANTT MINIMALISTE -->
+    <section id="gantt" class="space-y-4 pt-4 border-t border-[#21262d]">
+      <div class="flex items-baseline justify-between">
+        <h2 class="text-sm font-semibold tracking-wider text-white uppercase font-mono">
+          Chronologie des activités
+        </h2>
+        <span class="text-[11px] text-[#8b949e] font-mono">Cliquez sur une période pour le détail</span>
       </div>
 
-      <!-- Gantt Canvas Container -->
-      <div class="bg-[#111822] border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl overflow-x-auto">
-        <div class="min-w-[680px]">
-          
-          <!-- Timeline Header Years (2019 à 2029) -->
-          <div class="grid grid-cols-10 text-center font-mono text-xs text-slate-400 pb-3 border-b border-slate-800 font-semibold">
+      <div class="border border-[#21262d] rounded-lg p-5 bg-[#12161d] overflow-x-auto">
+        <div class="min-w-[620px]">
+          <!-- Axe des années -->
+          <div class="grid grid-cols-10 text-[11px] font-mono text-[#8b949e] pb-2 border-b border-[#21262d]">
             <div>2019</div>
             <div>2020</div>
             <div>2021</div>
@@ -231,586 +137,342 @@
             <div>2023</div>
             <div>2024</div>
             <div>2025</div>
-            <div class="text-brand-400 font-bold">2026 (Présent)</div>
+            <div class="text-[#2ea043] font-semibold">2026</div>
             <div>2027</div>
-            <div>2028-2029</div>
+            <div>2028-29</div>
           </div>
 
-          <!-- Timeline Rows -->
-          <div class="space-y-4 pt-5 relative">
-            <!-- Present vertical indicator line (at 2026: ~72%) -->
-            <div class="absolute top-0 bottom-0 left-[71.5%] w-[1.5px] bg-brand-500/40 z-0 pointer-events-none">
-              <span class="absolute -top-4 -left-7 px-1.5 py-0.5 rounded bg-brand-500/20 text-brand-300 font-mono text-[10px]">Aujourd'hui</span>
-            </div>
+          <!-- Lignes du Gantt -->
+          <div class="space-y-2.5 pt-3 text-xs">
 
-            <!-- Item 1: Doctorat PhD -->
-            <div class="relative z-10 flex items-center group">
-              <div class="w-44 text-xs font-semibold text-slate-300 pr-3 truncate flex items-center gap-1.5">
-                <i class="fa-solid fa-graduation-cap text-emerald-400"></i> PhD Student
-              </div>
-              <div class="flex-1 bg-slate-900/60 rounded-xl h-9 relative flex items-center p-1">
-                <!-- Bar 2026 - 2029 (from 70% to 100%) -->
-                <button onclick="openModal('phd')" class="gantt-bar absolute left-[70%] w-[30%] h-7 rounded-lg bg-gradient-to-r from-emerald-500 to-brand-400 text-slate-950 font-bold text-xs flex items-center justify-between px-3 shadow-md hover:ring-2 hover:ring-emerald-300 focus:outline-none">
-                  <span class="truncate">PhD - Green LLM Inference (LIG - DATAMOVE)</span>
-                  <span class="text-[10px] font-mono opacity-90 hidden sm:inline">2026-Présent</span>
+            <!-- PhD -->
+            <div class="flex items-center">
+              <span class="w-32 text-[#8b949e] font-mono text-[11px] truncate">Doctorat LIG</span>
+              <div class="flex-1 h-7 bg-[#161b22] rounded relative">
+                <button onclick="openDetails('phd')" class="gantt-bar absolute left-[70%] w-[30%] h-full rounded bg-[#2ea043] text-black font-medium text-[11px] px-2 text-left truncate" title="Cliquer pour afficher">
+                  Doctorat : Empreinte LLM
                 </button>
               </div>
             </div>
 
-            <!-- Item 2: Research Engineer -->
-            <div class="relative z-10 flex items-center group">
-              <div class="w-44 text-xs font-semibold text-slate-300 pr-3 truncate flex items-center gap-1.5">
-                <i class="fa-solid fa-microchip text-teal-400"></i> Ingénieur Rech.
-              </div>
-              <div class="flex-1 bg-slate-900/60 rounded-xl h-9 relative flex items-center p-1">
-                <!-- Oct 2025 - Jan 2026 (from 66.5% to 70%) -->
-                <button onclick="openModal('re')" class="gantt-bar absolute left-[66.5%] w-[4.5%] min-w-[50px] h-7 rounded-lg bg-teal-500 text-slate-950 font-semibold text-[11px] flex items-center justify-center px-1 shadow-md hover:ring-2 hover:ring-teal-300 focus:outline-none">
-                  <span class="truncate">Ing. LIG</span>
+            <!-- Ingénieur de Recherche -->
+            <div class="flex items-center">
+              <span class="w-32 text-[#8b949e] font-mono text-[11px] truncate">Ing. Recherche</span>
+              <div class="flex-1 h-7 bg-[#161b22] rounded relative">
+                <button onclick="openDetails('re')" class="gantt-bar absolute left-[66.5%] w-[4.5%] min-w-[55px] h-full rounded bg-[#1f6feb] text-white text-[11px] px-2 text-left truncate" title="Cliquer pour afficher">
+                  Ing. LIG
                 </button>
               </div>
             </div>
 
-            <!-- Item 3: Master 2 Intern -->
-            <div class="relative z-10 flex items-center group">
-              <div class="w-44 text-xs font-semibold text-slate-300 pr-3 truncate flex items-center gap-1.5">
-                <i class="fa-solid fa-flask text-teal-400"></i> Stage M2
-              </div>
-              <div class="flex-1 bg-slate-900/60 rounded-xl h-9 relative flex items-center p-1">
-                <!-- Feb 2025 - Jul 2025 (~61% to 66%) -->
-                <button onclick="openModal('m2')" class="gantt-bar absolute left-[61%] w-[5.5%] min-w-[85px] h-7 rounded-lg bg-teal-600/90 hover:bg-teal-500 text-white font-semibold text-xs flex items-center justify-center px-2 shadow-md hover:ring-2 hover:ring-teal-300 focus:outline-none">
-                  <span class="truncate">Cloud vs Edge LLM</span>
+            <!-- Stage M2 -->
+            <div class="flex items-center">
+              <span class="w-32 text-[#8b949e] font-mono text-[11px] truncate">Stage M2 (LIG)</span>
+              <div class="flex-1 h-7 bg-[#161b22] rounded relative">
+                <button onclick="openDetails('m2')" class="gantt-bar absolute left-[61%] w-[6%] min-w-[70px] h-full rounded bg-[#388bfd] text-white text-[11px] px-2 text-left truncate" title="Cliquer pour afficher">
+                  Cloud vs Edge
                 </button>
               </div>
             </div>
 
-            <!-- Item 4: Master 1 Intern -->
-            <div class="relative z-10 flex items-center group">
-              <div class="w-44 text-xs font-semibold text-slate-300 pr-3 truncate flex items-center gap-1.5">
-                <i class="fa-solid fa-server text-cyan-400"></i> Stage M1
-              </div>
-              <div class="flex-1 bg-slate-900/60 rounded-xl h-9 relative flex items-center p-1">
-                <!-- Jan 2024 - Jul 2024 (~50% to 55%) -->
-                <button onclick="openModal('m1')" class="gantt-bar absolute left-[50%] w-[5.5%] min-w-[80px] h-7 rounded-lg bg-cyan-600/90 hover:bg-cyan-500 text-white font-semibold text-xs flex items-center justify-center px-2 shadow-md hover:ring-2 hover:ring-cyan-300 focus:outline-none">
-                  <span class="truncate">HPC Scheduling</span>
+            <!-- Stage M1 -->
+            <div class="flex items-center">
+              <span class="w-32 text-[#8b949e] font-mono text-[11px] truncate">Stage M1 (LIG)</span>
+              <div class="flex-1 h-7 bg-[#161b22] rounded relative">
+                <button onclick="openDetails('m1')" class="gantt-bar absolute left-[50%] w-[6%] min-w-[70px] h-full rounded bg-[#388bfd] text-white text-[11px] px-2 text-left truncate" title="Cliquer pour afficher">
+                  Ordonnanc. HPC
                 </button>
               </div>
             </div>
 
-            <!-- Item 5: Master ENSIMAG / UGA -->
-            <div class="relative z-10 flex items-center group">
-              <div class="w-44 text-xs font-semibold text-slate-300 pr-3 truncate flex items-center gap-1.5">
-                <i class="fa-solid fa-book-open text-blue-400"></i> Master MoSiG
-              </div>
-              <div class="flex-1 bg-slate-900/60 rounded-xl h-9 relative flex items-center p-1">
-                <!-- Sep 2023 - Jul 2025 (from 46% to 66%) -->
-                <button onclick="openModal('ensimag')" class="gantt-bar absolute left-[46%] w-[20%] h-7 rounded-lg bg-blue-600/80 hover:bg-blue-500 text-white font-semibold text-xs flex items-center justify-between px-3 shadow-md hover:ring-2 hover:ring-blue-300 focus:outline-none">
-                  <span class="truncate">Master MoSiG & Magistère UGA</span>
-                  <span class="text-[10px] font-mono opacity-90 hidden sm:inline">2023-2025</span>
+            <!-- Master ENSIMAG -->
+            <div class="flex items-center">
+              <span class="w-32 text-[#8b949e] font-mono text-[11px] truncate">Master ENSIMAG</span>
+              <div class="flex-1 h-7 bg-[#161b22] rounded relative">
+                <button onclick="openDetails('ensimag')" class="gantt-bar absolute left-[46%] w-[20%] h-full rounded bg-[#484f58] text-[#c9d1d9] text-[11px] px-2 text-left truncate" title="Cliquer pour afficher">
+                  MoSiG & Magistère UGA
                 </button>
               </div>
             </div>
 
-            <!-- Item 6: BSc Internship INRIA -->
-            <div class="relative z-10 flex items-center group">
-              <div class="w-44 text-xs font-semibold text-slate-300 pr-3 truncate flex items-center gap-1.5">
-                <i class="fa-solid fa-diagram-project text-cyan-400"></i> Stage Licence
-              </div>
-              <div class="flex-1 bg-slate-900/60 rounded-xl h-9 relative flex items-center p-1">
-                <!-- Sep 2022 - Dec 2022 (from 36% to 40%) -->
-                <button onclick="openModal('inria')" class="gantt-bar absolute left-[36%] w-[4.5%] min-w-[70px] h-7 rounded-lg bg-cyan-700/80 hover:bg-cyan-600 text-white font-semibold text-[11px] flex items-center justify-center px-1 shadow-md hover:ring-2 hover:ring-cyan-300 focus:outline-none">
-                  <span class="truncate">INRIA MOEX</span>
+            <!-- Stage Licence INRIA -->
+            <div class="flex items-center">
+              <span class="w-32 text-[#8b949e] font-mono text-[11px] truncate">Stage INRIA</span>
+              <div class="flex-1 h-7 bg-[#161b22] rounded relative">
+                <button onclick="openDetails('inria')" class="gantt-bar absolute left-[36%] w-[4.5%] min-w-[65px] h-full rounded bg-[#388bfd] text-white text-[11px] px-2 text-left truncate" title="Cliquer pour afficher">
+                  FCA Clustering
                 </button>
               </div>
             </div>
 
-            <!-- Item 7: Bachelor UFR SHS -->
-            <div class="relative z-10 flex items-center group">
-              <div class="w-44 text-xs font-semibold text-slate-300 pr-3 truncate flex items-center gap-1.5">
-                <i class="fa-solid fa-shapes text-indigo-400"></i> Licence MIASHS
-              </div>
-              <div class="flex-1 bg-slate-900/60 rounded-xl h-9 relative flex items-center p-1">
-                <!-- Sep 2019 - May 2023 (from 0% to 43%) -->
-                <button onclick="openModal('miashs')" class="gantt-bar absolute left-[1%] w-[42%] h-7 rounded-lg bg-indigo-600/70 hover:bg-indigo-500 text-white font-semibold text-xs flex items-center justify-between px-3 shadow-md hover:ring-2 hover:ring-indigo-300 focus:outline-none">
-                  <span class="truncate">Licence Mathématiques & Informatique (UGA)</span>
-                  <span class="text-[10px] font-mono opacity-90 hidden sm:inline">2019-2023</span>
+            <!-- Licence MIASHS -->
+            <div class="flex items-center">
+              <span class="w-32 text-[#8b949e] font-mono text-[11px] truncate">Licence MIASHS</span>
+              <div class="flex-1 h-7 bg-[#161b22] rounded relative">
+                <button onclick="openDetails('miashs')" class="gantt-bar absolute left-[1%] w-[42%] h-full rounded bg-[#30363d] text-[#8b949e] text-[11px] px-2 text-left truncate" title="Cliquer pour afficher">
+                  Mathématiques & Informatique (UGA)
                 </button>
               </div>
             </div>
 
           </div>
-
-          <p class="text-right text-[11px] font-mono text-slate-400 mt-4">
-            <i class="fa-solid fa-mouse-pointer"></i> Cliquez sur n'importe quel segment pour ouvrir la fenêtre détaillée
-          </p>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 3: EXPÉRIENCES & RECHERCHE (Cartes Interactives) -->
-    <section id="research" class="space-y-8">
-      <div>
-        <div class="inline-flex items-center gap-2 text-brand-400 text-xs font-mono font-semibold uppercase tracking-wider">
-          <i class="fa-solid fa-flask-vial"></i> Parcours Scientifique
-        </div>
-        <h2 class="text-2xl sm:text-3xl font-bold text-white mt-1">Recherche & Expériences Professionnelles</h2>
-        <p class="text-slate-400 text-sm mt-1">Détails de mes travaux de doctorat, mandats de recherche et interventions en conférences.</p>
+    <!-- SECTION 3: RECHERCHE & EXPÉRIENCE -->
+    <section id="recherche" class="space-y-6 pt-4 border-t border-[#21262d]">
+      <h2 class="text-sm font-semibold tracking-wider text-white uppercase font-mono">
+        Recherche & Expériences
+      </h2>
+
+      <div class="space-y-8">
+
+        <!-- PhD -->
+        <article class="space-y-2">
+          <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between text-xs font-mono">
+            <span class="font-semibold text-white text-[14px]">Doctorant en Informatique</span>
+            <span class="text-[#2ea043]">Fév. 2026 — Présent</span>
+          </div>
+          <div class="text-xs text-[#8b949e]">LIG — Équipe DATAMOVE, Université Grenoble Alpes</div>
+          <ul class="list-disc list-outside pl-4 space-y-1 text-sm text-[#c9d1d9] pt-1">
+            <li>Recherche sur l'empreinte environnementale et la soutenabilité des Large Language Models (LLMs) dans les infrastructures cloud.</li>
+            <li>Conception et évaluation de techniques pour une inférence d'IA frugale et sobre en énergie à grande échelle.</li>
+            <li>Présentation des résultats de recherche lors d'un exposé aux <span class="text-white italic">Green Days 2026</span>.</li>
+          </ul>
+        </article>
+
+        <!-- Ingénieur de Recherche -->
+        <article class="space-y-2 border-t border-[#1c2128] pt-6">
+          <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between text-xs font-mono">
+            <span class="font-semibold text-white text-[14px]">Ingénieur de Recherche</span>
+            <span class="text-[#8b949e]">Oct. 2025 — Jan. 2026</span>
+          </div>
+          <div class="text-xs text-[#8b949e]">LIG — Équipe DATAMOVE, Université Grenoble Alpes</div>
+          <ul class="list-disc list-outside pl-4 space-y-1 text-sm text-[#c9d1d9] pt-1">
+            <li>Analyse comparative de l'impact environnemental de différents scénarios de déploiement pour l'inférence LLM.</li>
+            <li>Présentation des travaux lors d'un exposé à la conférence <span class="text-white italic">JRAF 2025</span>.</li>
+          </ul>
+        </article>
+
+        <!-- Stage M2 -->
+        <article class="space-y-2 border-t border-[#1c2128] pt-6">
+          <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between text-xs font-mono">
+            <span class="font-semibold text-white text-[14px]">Stagiaire de Recherche (Master 2)</span>
+            <span class="text-[#8b949e]">Fév. 2025 — Juil. 2025</span>
+          </div>
+          <div class="text-xs text-[#8b949e]">LIG — Équipe DATAMOVE, Université Grenoble Alpes</div>
+          <ul class="list-disc list-outside pl-4 space-y-1 text-sm text-[#c9d1d9] pt-1">
+            <li>Étude de l'impact environnemental de l'inférence IA selon les stratégies de déploiement (cloud centralisé vs edge).</li>
+            <li>Développement d'outils de mesure d'énergie et étude du compromis latence / frugalité.</li>
+            <li>Présentation aux <span class="text-white italic">Green Days 2025</span> (poster) et exposé invité à l'école d'été <span class="text-white italic">Slices-FR</span> (ENS Lyon).</li>
+          </ul>
+        </article>
+
+        <!-- Stage M1 -->
+        <article class="space-y-2 border-t border-[#1c2128] pt-6">
+          <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between text-xs font-mono">
+            <span class="font-semibold text-white text-[14px]">Stagiaire de Recherche (Master 1)</span>
+            <span class="text-[#8b949e]">Jan. 2024 — Juil. 2024</span>
+          </div>
+          <div class="text-xs text-[#8b949e]">LIG — Équipe DATAMOVE, Université Grenoble Alpes</div>
+          <ul class="list-disc list-outside pl-4 space-y-1 text-sm text-[#c9d1d9] pt-1">
+            <li>Conception de modèles de régression robustes à la multicollinéarité pour l'ordonnancement de tâches sur plateformes HPC.</li>
+            <li>Simulation de charges dynamiques pour évaluer les heuristiques de scheduling.</li>
+          </ul>
+        </article>
+
+        <!-- Stage Licence -->
+        <article class="space-y-2 border-t border-[#1c2128] pt-6">
+          <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between text-xs font-mono">
+            <span class="font-semibold text-white text-[14px]">Stagiaire de Recherche (Licence)</span>
+            <span class="text-[#8b949e]">Sep. 2022 — Déc. 2022</span>
+          </div>
+          <div class="text-xs text-[#8b949e]">INRIA — Équipe MOEX, Montbonnot</div>
+          <ul class="list-disc list-outside pl-4 space-y-1 text-sm text-[#c9d1d9] pt-1">
+            <li>Réduction de treillis de concepts (Formal Concept Analysis) par classification ascendante hiérarchique.</li>
+            <li>Développement d'outils Java pour visualiser et optimiser la fusion de concepts avec dendrogrammes.</li>
+          </ul>
+        </article>
+
       </div>
+    </section>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <!-- SECTION 4: FORMATION -->
+    <section id="formation" class="space-y-6 pt-4 border-t border-[#21262d]">
+      <h2 class="text-sm font-semibold tracking-wider text-white uppercase font-mono">
+        Formation Universitaire
+      </h2>
 
-        <!-- PhD Card (Highlight) -->
-        <div class="md:col-span-2 rounded-2xl bg-gradient-to-br from-[#121c27] via-[#101923] to-[#0d141d] border border-brand-500/40 p-6 sm:p-8 relative overflow-hidden group shadow-xl">
-          <div class="absolute top-0 right-0 p-4">
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
-              <i class="fa-solid fa-circle-dot text-[8px] animate-ping"></i> En cours
-            </span>
+      <div class="space-y-6">
+
+        <div class="space-y-1">
+          <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between text-xs font-mono">
+            <span class="font-semibold text-white text-[14px]">INP - ENSIMAG</span>
+            <span class="text-[#8b949e]">2023 — 2025</span>
           </div>
-
-          <div class="space-y-4 max-w-3xl">
-            <div class="text-xs font-mono text-brand-400 font-semibold uppercase tracking-wider flex items-center gap-2">
-              <i class="fa-solid fa-bolt"></i> Doctorat en Informatique • Fév. 2026 – Présent
-            </div>
-            
-            <h3 class="text-xl sm:text-2xl font-bold text-white">
-              Empreinte environnementale & soutenabilité des LLMs dans le Cloud
-            </h3>
-            
-            <p class="text-sm font-medium text-teal-300">
-              LIG - Équipe DATAMOVE | Université Grenoble Alpes, France
-            </p>
-
-            <p class="text-slate-300 text-sm leading-relaxed">
-              Recherche approfondie sur l'impact écologique des modèles de fondation génératifs. Conception d'architectures et d'heuristiques pour une inférence frugale et sobre en énergie à grande échelle.
-            </p>
-
-            <ul class="space-y-2 text-sm text-slate-300">
-              <li class="flex items-start gap-2.5">
-                <i class="fa-solid fa-check text-brand-400 text-xs mt-1"></i>
-                <span>Mesure et modélisation de l'empreinte environnementale des LLMs en infrastructure cloud distribuée.</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <i class="fa-solid fa-check text-brand-400 text-xs mt-1"></i>
-                <span>Techniques avancées d'inférence frugale, optimisation énergétique et compromis performance/sobriété.</span>
-              </li>
-              <li class="flex items-start gap-2.5">
-                <i class="fa-solid fa-bullhorn text-teal-400 text-xs mt-1"></i>
-                <span>Présentation des premiers résultats de recherche lors d'un talk à <strong class="text-white">Green Days 2026</strong>.</span>
-              </li>
-            </ul>
-
-            <div class="flex flex-wrap gap-2 pt-2">
-              <span class="px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300 text-xs font-mono">LLM Inference</span>
-              <span class="px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300 text-xs font-mono">Green Cloud</span>
-              <span class="px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300 text-xs font-mono">Energy Efficiency</span>
-              <span class="px-2.5 py-1 rounded-lg bg-slate-800 text-slate-300 text-xs font-mono">PyTorch / Hugging Face</span>
-            </div>
-          </div>
+          <div class="text-sm text-[#c9d1d9]">Master of Computer Science (MoSiG) — Data Science & Artificial Intelligence</div>
         </div>
 
-        <!-- Research Engineer Card -->
-        <div class="rounded-2xl bg-[#111822] border border-slate-800 p-6 flex flex-col justify-between hover:border-slate-700 transition-colors shadow-lg">
-          <div class="space-y-3">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-mono text-teal-400">Oct. 2025 – Jan. 2026</span>
-              <span class="text-xs px-2.5 py-0.5 rounded bg-slate-800 text-slate-400 font-mono">LIG</span>
-            </div>
-            <h3 class="text-lg font-bold text-white">Ingénieur de Recherche</h3>
-            <div class="text-xs text-slate-400 font-medium">LIG - DATAMOVE, Univ. Grenoble Alpes</div>
-            <ul class="text-xs text-slate-300 space-y-2 pt-2">
-              <li class="flex items-start gap-2">
-                <i class="fa-solid fa-chevron-right text-brand-400 text-[10px] mt-1"></i>
-                <span>Analyse comparative de l'impact environnemental de divers scénarios de déploiement pour l'inférence LLM.</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <i class="fa-solid fa-microphone text-teal-400 text-[10px] mt-1"></i>
-                <span>Talk et présentation des résultats à la conférence <strong class="text-white">JRAF 2025</strong>.</span>
-              </li>
-            </ul>
+        <div class="space-y-1 border-t border-[#1c2128] pt-4">
+          <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between text-xs font-mono">
+            <span class="font-semibold text-white text-[14px]">IM2AG — Université Grenoble Alpes</span>
+            <span class="text-[#8b949e]">2023 — 2025</span>
           </div>
-          <div class="pt-4 flex flex-wrap gap-1.5 border-t border-slate-800/80 mt-4">
-            <span class="px-2 py-0.5 rounded bg-slate-900 text-slate-400 text-[11px] font-mono">Benchmark</span>
-            <span class="px-2 py-0.5 rounded bg-slate-900 text-slate-400 text-[11px] font-mono">JRAF 2025</span>
-          </div>
+          <div class="text-sm text-[#c9d1d9]">Magistère en Informatique (suivi conjointement avec le Master ENSIMAG)</div>
         </div>
 
-        <!-- Research Intern M2 Card -->
-        <div class="rounded-2xl bg-[#111822] border border-slate-800 p-6 flex flex-col justify-between hover:border-slate-700 transition-colors shadow-lg">
-          <div class="space-y-3">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-mono text-teal-400">Fév. 2025 – Juil. 2025</span>
-              <span class="text-xs px-2.5 py-0.5 rounded bg-slate-800 text-slate-400 font-mono">Stage M2</span>
-            </div>
-            <h3 class="text-lg font-bold text-white">Inférence IA : Cloud vs Edge</h3>
-            <div class="text-xs text-slate-400 font-medium">LIG - DATAMOVE, Univ. Grenoble Alpes</div>
-            <ul class="text-xs text-slate-300 space-y-2 pt-2">
-              <li class="flex items-start gap-2">
-                <i class="fa-solid fa-chevron-right text-brand-400 text-[10px] mt-1"></i>
-                <span>Étude de l'impact environnemental selon la stratégie de déploiement (cloud centralisé vs edge décentralisé).</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <i class="fa-solid fa-chevron-right text-brand-400 text-[10px] mt-1"></i>
-                <span>Développement d'outils de métrologie énergétique et étude des compromis latence / sobriété.</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <i class="fa-solid fa-bullhorn text-teal-400 text-[10px] mt-1"></i>
-                <span>Présentation poster à <strong class="text-white">Green Days 2025</strong> et talk invité à l'école d'été <strong class="text-white">Slices-FR</strong> (ENS Lyon).</span>
-              </li>
-            </ul>
+        <div class="space-y-1 border-t border-[#1c2128] pt-4">
+          <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between text-xs font-mono">
+            <span class="font-semibold text-white text-[14px]">UFR SHS — Université Grenoble Alpes</span>
+            <span class="text-[#8b949e]">2019 — 2023</span>
           </div>
-          <div class="pt-4 flex flex-wrap gap-1.5 border-t border-slate-800/80 mt-4">
-            <span class="px-2 py-0.5 rounded bg-slate-900 text-slate-400 text-[11px] font-mono">Edge Computing</span>
-            <span class="px-2 py-0.5 rounded bg-slate-900 text-slate-400 text-[11px] font-mono">Green Days 2025</span>
-            <span class="px-2 py-0.5 rounded bg-slate-900 text-slate-400 text-[11px] font-mono">Slices-FR</span>
-          </div>
-        </div>
-
-        <!-- Research Intern M1 Card -->
-        <div class="rounded-2xl bg-[#111822] border border-slate-800 p-6 flex flex-col justify-between hover:border-slate-700 transition-colors shadow-lg">
-          <div class="space-y-3">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-mono text-cyan-400">Jan. 2024 – Juil. 2024</span>
-              <span class="text-xs px-2.5 py-0.5 rounded bg-slate-800 text-slate-400 font-mono">Stage M1</span>
-            </div>
-            <h3 class="text-lg font-bold text-white">Ordonnancement HPC & Régression</h3>
-            <div class="text-xs text-slate-400 font-medium">LIG - DATAMOVE, Univ. Grenoble Alpes</div>
-            <p class="text-xs text-slate-300 leading-relaxed pt-2">
-              Conception de modèles de régression robustes à la multicollinéarité pour l'ordonnancement de tâches sur supercalculateurs HPC. Simulation de charges dynamiques pour évaluer les heuristiques.
-            </p>
-          </div>
-          <div class="pt-4 flex flex-wrap gap-1.5 border-t border-slate-800/80 mt-4">
-            <span class="px-2 py-0.5 rounded bg-slate-900 text-slate-400 text-[11px] font-mono">HPC</span>
-            <span class="px-2 py-0.5 rounded bg-slate-900 text-slate-400 text-[11px] font-mono">Scheduling</span>
-            <span class="px-2 py-0.5 rounded bg-slate-900 text-slate-400 text-[11px] font-mono">Statistical Modeling</span>
-          </div>
-        </div>
-
-        <!-- Research Intern BSc Card -->
-        <div class="rounded-2xl bg-[#111822] border border-slate-800 p-6 flex flex-col justify-between hover:border-slate-700 transition-colors shadow-lg">
-          <div class="space-y-3">
-            <div class="flex items-center justify-between">
-              <span class="text-xs font-mono text-cyan-400">Sept. 2022 – Déc. 2022</span>
-              <span class="text-xs px-2.5 py-0.5 rounded bg-slate-800 text-slate-400 font-mono">Stage Licence</span>
-            </div>
-            <h3 class="text-lg font-bold text-white">Analyse Formelle de Concepts (FCA)</h3>
-            <div class="text-xs text-slate-400 font-medium">INRIA - Équipe MOEX, Montbonnot</div>
-            <p class="text-xs text-slate-300 leading-relaxed pt-2">
-              Implémentation de méthodes de réduction de treillis de concepts formels (FCA) par clustering hiérarchique. Création d'outils Java pour visualiser et optimiser la fusion de concepts avec dendrogrammes.
-            </p>
-          </div>
-          <div class="pt-4 flex flex-wrap gap-1.5 border-t border-slate-800/80 mt-4">
-            <span class="px-2 py-0.5 rounded bg-slate-900 text-slate-400 text-[11px] font-mono">INRIA</span>
-            <span class="px-2 py-0.5 rounded bg-slate-900 text-slate-400 text-[11px] font-mono">Clustering</span>
-            <span class="px-2 py-0.5 rounded bg-slate-900 text-slate-400 text-[11px] font-mono">Java / FCA</span>
-          </div>
+          <div class="text-sm text-[#c9d1d9]">Licence Mathématiques et Informatique Appliquées aux Sciences Humaines et Sociales (MIASHS)</div>
         </div>
 
       </div>
     </section>
 
-    <!-- SECTION 4: FORMATION ACADÉMIQUE -->
-    <section id="education" class="space-y-8">
-      <div>
-        <div class="inline-flex items-center gap-2 text-teal-400 text-xs font-mono font-semibold uppercase tracking-wider">
-          <i class="fa-solid fa-graduation-cap"></i> Cursus Universitaire
-        </div>
-        <h2 class="text-2xl sm:text-3xl font-bold text-white mt-1">Formation & Diplômes</h2>
-      </div>
+    <!-- SECTION 5: COMPÉTENCES -->
+    <section id="competences" class="space-y-4 pt-4 border-t border-[#21262d]">
+      <h2 class="text-sm font-semibold tracking-wider text-white uppercase font-mono">
+        Compétences & Domaines
+      </h2>
 
-      <div class="relative pl-6 sm:pl-8 border-l border-slate-800 space-y-10">
-        
-        <!-- Edu 1 -->
-        <div class="relative">
-          <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-brand-500 border-4 border-[#0b1015]"></div>
-          <div class="bg-[#111822] border border-slate-800 p-6 rounded-2xl">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
-              <h3 class="text-base sm:text-lg font-bold text-white">Master Computer Science (MoSiG) — Data Science & AI</h3>
-              <span class="text-xs font-mono text-teal-400">Sept. 2023 – Juil. 2025</span>
-            </div>
-            <p class="text-sm font-semibold text-slate-300">INP - ENSIMAG (Grenoble, France)</p>
-            <p class="text-xs text-slate-400 mt-2">
-              Spécialisation avancée en Intelligence Artificielle, traitement automatique du langage naturel (NLP), calcul parallèle (GP-GPU/CUDA) et architectures de modèles de fondation.
-            </p>
-          </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-mono">
+        <div class="p-4 rounded border border-[#21262d] bg-[#12161d] space-y-1.5">
+          <div class="text-white font-medium">Langages</div>
+          <p class="text-[#8b949e] font-sans">Python, C, C++, CUDA, SQL, R, Bash, Java, Scheme, Prolog</p>
         </div>
 
-        <!-- Edu 2 -->
-        <div class="relative">
-          <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-teal-500 border-4 border-[#0b1015]"></div>
-          <div class="bg-[#111822] border border-slate-800 p-6 rounded-2xl">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
-              <h3 class="text-base sm:text-lg font-bold text-white">Magistère en Informatique</h3>
-              <span class="text-xs font-mono text-teal-400">Sept. 2023 – Juil. 2025</span>
-            </div>
-            <p class="text-sm font-semibold text-slate-300">IM2AG - Université Grenoble Alpes</p>
-            <p class="text-xs text-slate-400 mt-2">
-              Cursus d'excellence sélectif suivi en parallèle du Master ENSIMAG, orienté vers la recherche théorique et appliquée en informatique.
-            </p>
-          </div>
+        <div class="p-4 rounded border border-[#21262d] bg-[#12161d] space-y-1.5">
+          <div class="text-white font-medium">Deep Learning & NLP</div>
+          <p class="text-[#8b949e] font-sans">Transformers (BERT, GPT), LLM inference, Attention mechanisms, PyTorch, TensorFlow, Hugging Face</p>
         </div>
 
-        <!-- Edu 3 -->
-        <div class="relative">
-          <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-slate-600 border-4 border-[#0b1015]"></div>
-          <div class="bg-[#111822] border border-slate-800 p-6 rounded-2xl">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
-              <h3 class="text-base sm:text-lg font-bold text-white">Licence Mathématiques & Informatique (MIASHS)</h3>
-              <span class="text-xs font-mono text-slate-400">Sept. 2019 – Mai 2023</span>
-            </div>
-            <p class="text-sm font-semibold text-slate-300">UFR SHS - Université Grenoble Alpes</p>
-            <p class="text-xs text-slate-400 mt-2">
-              Solide socle en algèbre linéaire, probabilités & statistiques, optimisation mathématique, algorithmique fondamentale et programmation.
-            </p>
-          </div>
+        <div class="p-4 rounded border border-[#21262d] bg-[#12161d] space-y-1.5">
+          <div class="text-white font-medium">Données & Calcul</div>
+          <p class="text-[#8b949e] font-sans">NumPy, pandas, Scikit-learn, Scipy, Matplotlib, GP-GPU computing</p>
         </div>
 
-      </div>
-    </section>
-
-    <!-- SECTION 5: COMPÉTENCES TECHNIQUES & DOUCES -->
-    <section id="skills" class="space-y-8">
-      <div>
-        <div class="inline-flex items-center gap-2 text-emerald-400 text-xs font-mono font-semibold uppercase tracking-wider">
-          <i class="fa-solid fa-code"></i> Compétences & Savoir-faire
-        </div>
-        <h2 class="text-2xl sm:text-3xl font-bold text-white mt-1">Stack & Domaines d'Expertise</h2>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-        <!-- Deep Learning & NLP -->
-        <div class="bg-[#111822] border border-slate-800 rounded-2xl p-6 space-y-4">
-          <div class="w-10 h-10 rounded-xl bg-brand-500/10 border border-brand-500/20 text-brand-400 flex items-center justify-center text-lg">
-            <i class="fa-solid fa-brain"></i>
-          </div>
-          <h3 class="font-bold text-white text-base">Deep Learning & NLP</h3>
-          <p class="text-xs text-slate-400">
-            Architectures Transformers (BERT, GPT), attention mechanisms, tokenisation, inférence LLM, fine-tuning supervisé et non-supervisé.
-          </p>
-          <div class="flex flex-wrap gap-1.5 pt-2">
-            <span class="px-2 py-1 rounded bg-slate-800/80 text-brand-300 text-xs font-mono">PyTorch</span>
-            <span class="px-2 py-1 rounded bg-slate-800/80 text-brand-300 text-xs font-mono">TensorFlow</span>
-            <span class="px-2 py-1 rounded bg-slate-800/80 text-brand-300 text-xs font-mono">Hugging Face</span>
-          </div>
-        </div>
-
-        <!-- HPC & Low Level -->
-        <div class="bg-[#111822] border border-slate-800 rounded-2xl p-6 space-y-4">
-          <div class="w-10 h-10 rounded-xl bg-teal-500/10 border border-teal-500/20 text-teal-400 flex items-center justify-center text-lg">
-            <i class="fa-solid fa-server"></i>
-          </div>
-          <h3 class="font-bold text-white text-base">HPC & Calcul Parallèle</h3>
-          <p class="text-xs text-slate-400">
-            Parallélisation GPU (CUDA, architecture SIMT), programmation système C/C++, modélisation de charges dynamiques et ordonnancement de supercalculateurs.
-          </p>
-          <div class="flex flex-wrap gap-1.5 pt-2">
-            <span class="px-2 py-1 rounded bg-slate-800/80 text-teal-300 text-xs font-mono">CUDA</span>
-            <span class="px-2 py-1 rounded bg-slate-800/80 text-teal-300 text-xs font-mono">C / C++</span>
-            <span class="px-2 py-1 rounded bg-slate-800/80 text-teal-300 text-xs font-mono">Linux / Bash</span>
-          </div>
-        </div>
-
-        <!-- Data Science & Core -->
-        <div class="bg-[#111822] border border-slate-800 rounded-2xl p-6 space-y-4">
-          <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center text-lg">
-            <i class="fa-solid fa-chart-pie"></i>
-          </div>
-          <h3 class="font-bold text-white text-base">Data Science & Mathématiques</h3>
-          <p class="text-xs text-slate-400">
-            Fondements mathématiques du Machine Learning, analyse statistique de données, modélisation de régressions multicolinéaires.
-          </p>
-          <div class="flex flex-wrap gap-1.5 pt-2">
-            <span class="px-2 py-1 rounded bg-slate-800/80 text-cyan-300 text-xs font-mono">NumPy</span>
-            <span class="px-2 py-1 rounded bg-slate-800/80 text-cyan-300 text-xs font-mono">pandas</span>
-            <span class="px-2 py-1 rounded bg-slate-800/80 text-cyan-300 text-xs font-mono">Scikit-learn</span>
-            <span class="px-2 py-1 rounded bg-slate-800/80 text-cyan-300 text-xs font-mono">SQL / R</span>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Languages & Soft Skills banner -->
-      <div class="rounded-2xl bg-[#0f1722] border border-slate-800 p-6 flex flex-col sm:flex-row items-center justify-between gap-6">
-        <div class="space-y-1 text-center sm:text-left">
-          <div class="text-white font-bold text-sm">Langues & Atouts Professionnels</div>
-          <p class="text-xs text-slate-400">
-            Français (Langue maternelle) • Anglais (C1 Professionnel) • Rigueur scientifique • Esprit d'équipe & Collaboration
-          </p>
-        </div>
-        <div class="flex items-center gap-2">
-          <span class="px-3 py-1.5 rounded-lg bg-slate-800 text-xs font-medium text-slate-300 border border-slate-700">Français (Natif)</span>
-          <span class="px-3 py-1.5 rounded-lg bg-slate-800 text-xs font-medium text-slate-300 border border-slate-700">Anglais (C1)</span>
+        <div class="p-4 rounded border border-[#21262d] bg-[#12161d] space-y-1.5">
+          <div class="text-white font-medium">Langues & Profil</div>
+          <p class="text-[#8b949e] font-sans">Français (Natif), Anglais (C1), Rigueur d'analyse, Esprit de synthèse</p>
         </div>
       </div>
     </section>
 
-    <!-- SECTION 6: CONTACT & FOOTER -->
-    <section id="contact" class="pt-6 border-t border-slate-800">
-      <div class="rounded-3xl bg-gradient-to-r from-brand-950/40 via-slate-900 to-teal-950/40 border border-slate-800 p-8 sm:p-12 text-center space-y-6">
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Travaillons ensemble pour une IA plus sobre</h2>
-        <p class="text-sm text-slate-300 max-w-xl mx-auto">
-          Ouvert aux échanges académiques, collaborations de recherche et discussions sur la frugalité des LLMs et l'efficacité des infrastructures cloud.
-        </p>
-
-        <div class="flex flex-wrap items-center justify-center gap-4">
-          <a href="mailto:djoser.simeu@gmail.com" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold text-sm transition-all shadow-lg shadow-brand-900/50">
-            <i class="fa-solid fa-envelope"></i> djoser.simeu@gmail.com
-          </a>
-          <a href="tel:+33699683020" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 font-semibold text-sm transition-all">
-            <i class="fa-solid fa-phone"></i> +33 6 99 68 30 20
-          </a>
-        </div>
-
-        <div class="pt-6 text-xs text-slate-400 font-mono">
-          © 2026 Djoser SIMEU • Hébergé de façon ultra-sobre sur Cloudflare (Workers & Pages)
-        </div>
+    <!-- SECTION 6: CONTACT SOBRE -->
+    <section id="contact" class="space-y-3 pt-4 border-t border-[#21262d]">
+      <h2 class="text-sm font-semibold tracking-wider text-white uppercase font-mono">
+        Contact
+      </h2>
+      <p class="text-sm text-[#8b949e]">
+        Pour toute question ou échange scientifique :
+      </p>
+      <div class="pt-1 font-mono text-xs">
+        <a href="mailto:djoser.simeu@gmail.com" class="text-[#58a6ff] hover:underline">
+          djoser.simeu@gmail.com
+        </a>
       </div>
     </section>
 
   </main>
 
-  <!-- MODAL DE DETAILS (Fenêtre contextuelle interactive) -->
-  <div id="info-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 modal-backdrop bg-black/70">
-    <div class="bg-[#121c27] border border-slate-700/80 rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative text-left">
-      <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2">
-        <i class="fa-solid fa-xmark text-lg"></i>
-      </button>
+  <!-- PIED DE PAGE SOBRE -->
+  <footer class="border-t border-[#21262d] py-6 text-center text-xs text-[#8b949e] font-mono">
+    Djoser SIMEU • Hébergé sur Cloudflare
+  </footer>
 
-      <div id="modal-content" class="space-y-4">
-        <!-- Contenu dynamique injecté par JS -->
+  <!-- MODALE CONTEXTUELLE MINIMALISTE -->
+  <div id="modal" class="fixed inset-0 z-50 hidden bg-black/60 flex items-center justify-center p-4">
+    <div class="bg-[#161b22] border border-[#30363d] rounded-lg max-w-lg w-full p-6 space-y-4 text-left shadow-xl">
+      <div class="flex items-center justify-between border-b border-[#21262d] pb-3">
+        <span id="modal-period" class="text-xs font-mono text-[#2ea043]"></span>
+        <button onclick="closeDetails()" class="text-[#8b949e] hover:text-white text-sm font-mono px-1">✕</button>
       </div>
 
-      <div class="mt-6 pt-4 border-t border-slate-800 flex justify-end">
-        <button onclick="closeModal()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-semibold">
-          Fermer la fenêtre
+      <div class="space-y-2">
+        <h3 id="modal-title" class="text-base font-semibold text-white"></h3>
+        <p id="modal-inst" class="text-xs font-mono text-[#8b949e]"></p>
+        <p id="modal-desc" class="text-sm text-[#c9d1d9] pt-2 leading-relaxed"></p>
+      </div>
+
+      <div class="pt-4 border-t border-[#21262d] flex justify-end">
+        <button onclick="closeDetails()" class="px-3 py-1.5 rounded bg-[#21262d] hover:bg-[#30363d] text-white text-xs font-mono">
+          Fermer
         </button>
       </div>
     </div>
   </div>
 
   <script>
-    // Navigation mobile
-    const btn = document.getElementById('mobile-menu-btn');
-    const menu = document.getElementById('mobile-menu');
-    if (btn && menu) {
-      btn.addEventListener('click', () => {
-        menu.classList.toggle('hidden');
-      });
-    }
-
-    // Modal data dictionary
-    const modalData = {
+    const data = {
       phd: {
-        tag: 'Doctorat en cours (2026 – Présent)',
-        title: "Doctorat en Informatique — Empreinte environnementale des LLMs",
-        institution: "LIG - Équipe DATAMOVE | Université Grenoble Alpes",
-        desc: "Recherches portant sur la quantification et la réduction de l'empreinte carbone et énergétique des modèles de langage de grande taille (LLMs) dans les centres de données cloud. Développement de stratégies d'inférence frugales à large échelle.",
-        highlights: [
-          "Modélisation énergétique de bout en bout des architectures de transformers",
-          "Optimisation du ratio performance/consommation électrique",
-          "Présentation invitée aux Green Days 2026"
-        ]
+        period: "Fév. 2026 — Présent",
+        title: "Doctorat en Informatique",
+        inst: "LIG — DATAMOVE, Univ. Grenoble Alpes",
+        desc: "Recherche sur l'empreinte environnementale et la frugalité énergétique des LLMs dans les infrastructures cloud à large échelle. Présentation aux Green Days 2026."
       },
       re: {
-        tag: 'Poste de Recherche (Oct. 2025 – Jan. 2026)',
+        period: "Oct. 2025 — Jan. 2026",
         title: "Ingénieur de Recherche",
-        institution: "LIG - DATAMOVE | Université Grenoble Alpes",
-        desc: "Étude et comparaison approfondie de différents scénarios de déploiement pour l'inférence des LLMs afin de déterminer les configurations les plus sobres.",
-        highlights: [
-          "Analyse comparative d'impact environnemental",
-          "Présentation orale à la conférence JRAF 2025"
-        ]
+        inst: "LIG — DATAMOVE, Univ. Grenoble Alpes",
+        desc: "Analyse comparative de l'impact écologique de déploiements d'inférence LLM. Exposé lors de la conférence JRAF 2025."
       },
       m2: {
-        tag: 'Stage de Recherche M2 (Fév. 2025 – Juil. 2025)',
-        title: "Inférence IA : Déploiement Cloud vs Edge",
-        institution: "LIG - DATAMOVE | Université Grenoble Alpes",
-        desc: "Comparaison des compromis écologiques et temporels entre l'inférence déportée dans le cloud et l'inférence embarquée en périphérie de réseau (edge).",
-        highlights: [
-          "Création d'outils de mesure de puissance et d'énergie",
-          "Présentation poster à Green Days 2025",
-          "Talk à l'école d'été Slices-FR (ENS Lyon)"
-        ]
+        period: "Fév. 2025 — Juil. 2025",
+        title: "Stagiaire de Recherche M2",
+        inst: "LIG — DATAMOVE, Univ. Grenoble Alpes",
+        desc: "Étude des compromis environnementaux entre inférence centralisée (Cloud) et distribuée (Edge). Poster à Green Days 2025 et talk à l'école d'été Slices-FR (ENS Lyon)."
       },
       m1: {
-        tag: 'Stage de Recherche M1 (Jan. 2024 – Juil. 2024)',
-        title: "Ordonnancement sur plateformes HPC",
-        institution: "LIG - DATAMOVE | Université Grenoble Alpes",
-        desc: "Modélisation statistique et régression prenant en compte la multicollinéarité pour optimiser le placement et l'ordonnancement de tâches sur supercalculateurs.",
-        highlights: [
-          "Modélisation statistique de performance",
-          "Simulation de charges dynamiques sous simulateurs HPC"
-        ]
+        period: "Jan. 2024 — Juil. 2024",
+        title: "Stagiaire de Recherche M1",
+        inst: "LIG — DATAMOVE, Univ. Grenoble Alpes",
+        desc: "Modélisation de régression gérant la multicollinéarité pour l'ordonnancement de charges dynamiques sur plateformes HPC."
       },
       ensimag: {
-        tag: 'Formation Master (2023 – 2025)',
+        period: "Sep. 2023 — Juil. 2025",
         title: "Master MoSiG & Magistère d'Informatique",
-        institution: "INP - ENSIMAG & IM2AG (Univ. Grenoble Alpes)",
-        desc: "Double cursus d'excellence en Data Science & Intelligence Artificielle. Enseignements approfondis en NLP, Transformers, calcul parallèle GP-GPU (CUDA) et systèmes distribués.",
-        highlights: [
-          "Implémentation CNN from scratch en Python/NumPy",
-          "Parallélisation GPU de MLP sous CUDA",
-          "Diplômé avec mention"
-        ]
+        inst: "INP - ENSIMAG & IM2AG (UGA)",
+        desc: "Spécialisation avancée en Data Science, NLP, Transformers, calcul parallèle GP-GPU (CUDA) et modélisation statistique."
       },
       inria: {
-        tag: 'Stage Licence (Sept. 2022 – Déc. 2022)',
-        title: "Analyse Formelle de Concepts & Clustering",
-        institution: "INRIA - Équipe MOEX (Montbonnot, France)",
-        desc: "Réduction de treillis de concepts via des méthodes de regroupement hiérarchique et création d'outils Java de visualisation en dendrogrammes.",
-        highlights: [
-          "Algorithmes de fusion de concepts",
-          "Visualisation interactive de dendrogrammes"
-        ]
+        period: "Sep. 2022 — Déc. 2022",
+        title: "Stagiaire de Recherche (Licence)",
+        inst: "INRIA — MOEX, Montbonnot",
+        desc: "Formal Concept Analysis (FCA) et réduction par clustering hiérarchique avec visualisation en dendrogrammes Java."
       },
       miashs: {
-        tag: 'Licence Universitaire (2019 – 2023)',
-        title: "Licence Mathématiques & Informatique Appliquées aux Sciences Humaines (MIASHS)",
-        institution: "UFR SHS - Université Grenoble Alpes",
-        desc: "Formation solide et pluridisciplinaire alliant mathématiques appliquées (algèbre, probabilités, statistiques) et informatique théorique et pratique.",
-        highlights: [
-          "Bases théoriques solides du Machine Learning",
-          "Algorithmique avancée et programmation structurée"
-        ]
+        period: "Sep. 2019 — Mai 2023",
+        title: "Licence MIASHS",
+        inst: "UFR SHS — Université Grenoble Alpes",
+        desc: "Formation fondamentale en mathématiques appliquées (algèbre, probabilités, statistiques) et informatique."
       }
     };
 
-    function openModal(key) {
-      const item = modalData[key];
+    function openDetails(key) {
+      const item = data[key];
       if (!item) return;
-
-      const content = document.getElementById('modal-content');
-      content.innerHTML = `
-        <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-brand-500/20 text-brand-300 font-mono text-xs border border-brand-500/30">
-          <i class="fa-solid fa-tag text-[10px]"></i> ${item.tag}
-        </div>
-        <h3 class="text-xl font-bold text-white mt-2">${item.title}</h3>
-        <p class="text-xs font-semibold text-teal-300">${item.institution}</p>
-        <p class="text-sm text-slate-300 leading-relaxed mt-2">${item.desc}</p>
-        <div class="mt-4 space-y-2">
-          <div class="text-xs font-mono text-slate-400 uppercase font-semibold">Faits marquants :</div>
-          <ul class="space-y-1.5 text-xs text-slate-300">
-            ${item.highlights.map(h => `<li class="flex items-start gap-2"><i class="fa-solid fa-arrow-right text-brand-400 text-[10px] mt-0.5"></i> <span>${h}</span></li>`).join('')}
-          </ul>
-        </div>
-      `;
-      document.getElementById('info-modal').classList.remove('hidden');
+      document.getElementById('modal-period').textContent = item.period;
+      document.getElementById('modal-title').textContent = item.title;
+      document.getElementById('modal-inst').textContent = item.inst;
+      document.getElementById('modal-desc').textContent = item.desc;
+      document.getElementById('modal').classList.remove('hidden');
     }
 
-    function closeModal() {
-      document.getElementById('info-modal').classList.add('hidden');
+    function closeDetails() {
+      document.getElementById('modal').classList.add('hidden');
     }
 
-    // Close on click outside
     window.addEventListener('click', (e) => {
-      const modal = document.getElementById('info-modal');
-      if (e.target === modal) {
-        closeModal();
-      }
+      const modal = document.getElementById('modal');
+      if (e.target === modal) closeDetails();
     });
 
-    // Close on Escape key
     window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeModal();
+      if (e.key === 'Escape') closeDetails();
     });
   </script>
 </body>
